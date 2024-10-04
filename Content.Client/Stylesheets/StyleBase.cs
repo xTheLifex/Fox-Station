@@ -54,6 +54,14 @@ namespace Content.Client.Stylesheets
                 },
                 12
             );
+            var kabel12 = resCache.GetFont
+            (
+                new []
+                {
+                    "/Fonts/Kabel/Kabel Demi.ttf"
+                },
+                12
+            );
             var notoSans12Italic = resCache.GetFont
             (
                 new []
@@ -67,7 +75,7 @@ namespace Content.Client.Stylesheets
             var textureCloseButton = resCache.GetTexture("/Textures/Interface/Nano/cross.svg.png");
 
             // Button styles.
-            var buttonTex = resCache.GetTexture("/Textures/Interface/Nano/button.svg.96dpi.png");
+            var buttonTex = resCache.GetTexture("/Textures/Interface/Nano/rounded_button.svg.96dpi.png");
             BaseButton = new StyleBoxTexture
             {
                 Texture = buttonTex,
@@ -160,7 +168,7 @@ namespace Content.Client.Stylesheets
                     new SelectorElement(null, null, null, null),
                     new[]
                     {
-                        new StyleProperty("font", notoSans12),
+                        new StyleProperty("font", kabel12),
                     }),
 
                 // Default font.
@@ -178,7 +186,7 @@ namespace Content.Client.Stylesheets
                     new[]
                     {
                         new StyleProperty(TextureButton.StylePropertyTexture, textureCloseButton),
-                        new StyleProperty(Control.StylePropertyModulateSelf, StyleNano.NanoGold),
+                        new StyleProperty(Control.StylePropertyModulateSelf, Color.FromHex("#8a8888")),
                     }),
                 // Window close button hover.
                 new StyleRule(

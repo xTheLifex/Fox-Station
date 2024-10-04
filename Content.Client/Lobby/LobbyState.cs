@@ -72,7 +72,7 @@ namespace Content.Client.Lobby
             };
 
             LayoutContainer.SetAnchorPreset(_lobby, LayoutContainer.LayoutPreset.Wide);
-            _lobby.ServerName.Text = _baseClient.GameInfo?.ServerName; //The eye of refactor gazes upon you...
+            //! _lobby.ServerName.Text = _baseClient.GameInfo?.ServerName; //The eye of refactor gazes upon you...
             UpdateLobbyUi();
 
             _lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed;
@@ -128,13 +128,15 @@ namespace Content.Client.Lobby
         {
             if (_gameTicker.IsGameStarted)
             {
-                _lobby!.StartTime.Text = string.Empty;
+                // _lobby!.StartTime.Text = string.Empty;
                 var roundTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
-                _lobby!.StationTime.Text = Loc.GetString("lobby-state-player-status-round-time", ("hours", roundTime.Hours), ("minutes", roundTime.Minutes));
+                //todo: zeropad
+                _lobby!.StartTime.Text = Loc.GetString("lobby-state-player-status-round-time", ("hours", roundTime.Hours), ("minutes", roundTime.Minutes));
+                //! _lobby!.StationTime.Text = Loc.GetString("lobby-state-player-status-round-time", ("hours", roundTime.Hours), ("minutes", roundTime.Minutes));
                 return;
             }
 
-            _lobby!.StationTime.Text =  Loc.GetString("lobby-state-player-status-round-not-started");
+            //! _lobby!.StationTime.Text = Loc.GetString("lobby-state-player-status-round-not-started");
             string text;
 
             if (_gameTicker.Paused)
@@ -182,7 +184,7 @@ namespace Content.Client.Lobby
             else
             {
                 _lobby!.StartTime.Text = string.Empty;
-                _lobby!.ReadyButton.Text = Loc.GetString(_lobby!.ReadyButton.Pressed ? "lobby-state-player-status-ready": "lobby-state-player-status-not-ready");
+                _lobby!.ReadyButton.Text = Loc.GetString(_lobby!.ReadyButton.Pressed ? "lobby-state-player-status-ready" : "lobby-state-player-status-not-ready");
                 _lobby!.ReadyButton.ToggleMode = true;
                 _lobby!.ReadyButton.Disabled = false;
                 _lobby!.ReadyButton.Pressed = _gameTicker.AreWeReady;
