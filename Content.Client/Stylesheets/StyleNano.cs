@@ -88,7 +88,7 @@ namespace Content.Client.Stylesheets
         public static readonly Color PanelDark = Color.FromHex("#1E1E22");
 
         public static readonly Color NanoGold = Color.FromHex("#A88B5E");
-        public static readonly Color GoodGreenFore = Color.FromHex("#31843E");
+        public static readonly Color GoodGreenFore = Color.FromHex("#36AE3F");
         public static readonly Color ConcerningOrangeFore = Color.FromHex("#A5762F");
         public static readonly Color DangerousRedFore = Color.FromHex("#BB3232");
         public static readonly Color DisabledFore = Color.FromHex("#5A5A5A");
@@ -295,7 +295,8 @@ namespace Content.Client.Stylesheets
                 Modulate = ButtonColorPressed
             };
 
-            var buttonTex = resCache.GetTexture("/Textures/Interface/Nano/button.svg.96dpi.png");
+            //var buttonTex = resCache.GetTexture("/Textures/Interface/Nano/button.svg.96dpi.png");
+            var buttonTex = resCache.GetTexture("/Textures/Interface/Nano/rounded_button.svg.96dpi.png"); //! round buttons(!)
             var topButtonBase = new StyleBoxTexture
             {
                 Texture = buttonTex,
@@ -507,6 +508,7 @@ namespace Content.Client.Stylesheets
             var sliderFillWhite = new StyleBoxTexture(sliderFillBox) { Modulate = Color.White };
 
             var boxFont13 = resCache.GetFont("/Fonts/Boxfont-round/Boxfont Round.ttf", 13);
+            var kabelFont14 = resCache.GetFont("/Fonts/Kabel/Kabel Demi.ttf", 14); //we will use to replace the header style
 
             var insetBack = new StyleBoxTexture
             {
@@ -540,8 +542,8 @@ namespace Content.Client.Stylesheets
                     new SelectorElement(typeof(Label), new[] {DefaultWindow.StyleClassWindowTitle}, null, null),
                     new[]
                     {
-                        new StyleProperty(Label.StylePropertyFontColor, NanoGold),
-                        new StyleProperty(Label.StylePropertyFont, notoSansDisplayBold14),
+                        new StyleProperty(Label.StylePropertyFontColor, GoodGreenFore),
+                        new StyleProperty(Label.StylePropertyFont, kabelFont14),
                     }),
                 // Alert (white) window title.
                 new StyleRule(
@@ -549,7 +551,7 @@ namespace Content.Client.Stylesheets
                     new[]
                     {
                         new StyleProperty(Label.StylePropertyFontColor, Color.White),
-                        new StyleProperty(Label.StylePropertyFont, notoSansDisplayBold14),
+                        new StyleProperty(Label.StylePropertyFont, kabelFont14),
                     }),
                 // Window background.
                 new StyleRule(
@@ -1100,7 +1102,7 @@ namespace Content.Client.Stylesheets
                 new StyleRule(new SelectorElement(typeof(Label), new[] {StyleClassLabelHeading}, null, null), new[]
                 {
                     new StyleProperty(Label.StylePropertyFont, notoSansBold16),
-                    new StyleProperty(Label.StylePropertyFontColor, NanoGold),
+                    new StyleProperty(Label.StylePropertyFontColor, GoodGreenFore),
                 }),
 
                 // Bigger Label
@@ -1108,7 +1110,7 @@ namespace Content.Client.Stylesheets
                     new[]
                     {
                         new StyleProperty(Label.StylePropertyFont, notoSansBold20),
-                        new StyleProperty(Label.StylePropertyFontColor, NanoGold),
+                        new StyleProperty(Label.StylePropertyFontColor, GoodGreenFore),
                     }),
 
                 // Small Label
@@ -1240,6 +1242,8 @@ namespace Content.Client.Stylesheets
                     new[]
                     {
                         new StyleProperty(PanelContainer.StylePropertyPanel, nanoHeadingBox),
+                        /*new StyleProperty(Label.StylePropertyFont, notoSans12),
+                        new StyleProperty(Label.StylePropertyFontColor, Color.DarkGray),*/
                     }),
 
                 // StripeBack
@@ -1358,10 +1362,12 @@ namespace Content.Client.Stylesheets
 
                 // Labels ---
                 Element<Label>().Class(StyleClassLabelBig)
-                    .Prop(Label.StylePropertyFont, notoSans16),
+                    .Prop(Label.StylePropertyFont, notoSans16) //todo: kabel17
+                    .Prop(Label.StylePropertyFontColor, Color.FromHex("#36AE3F")),
 
                 Element<Label>().Class(StyleClassLabelSmall)
-                 .Prop(Label.StylePropertyFont, notoSans10),
+                    .Prop(Label.StylePropertyFont, notoSans10) //todo: kabel11
+                    .Prop(Label.StylePropertyFontColor, Color.FromHex("#36AE3F")),
                 // ---
 
                 // Different Background shapes ---
@@ -1389,8 +1395,8 @@ namespace Content.Client.Stylesheets
 
                 // Window Headers
                 Element<Label>().Class("FancyWindowTitle")
-                    .Prop("font", boxFont13)
-                    .Prop("font-color", NanoGold),
+                    .Prop("font", kabelFont14)
+                    .Prop("font-color", GoodGreenFore),
 
                 Element<PanelContainer>().Class("WindowHeadingBackground")
                     .Prop("panel", new StyleBoxTexture(BaseButtonOpenLeft) { Padding = default })
