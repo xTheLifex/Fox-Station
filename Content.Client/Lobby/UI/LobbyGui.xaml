@@ -14,6 +14,8 @@
                  Stretch="KeepAspectCovered" />
     <BoxContainer Name="MainContainer" VerticalExpand="True" HorizontalExpand="True" Orientation="Horizontal"
                   Margin="10 10 10 10" SeparationOverride="2">
+        <!-- !char setup location testing 
+        <Control Access="Public" Visible="False" Name="CharacterSetupState" VerticalExpand="True" HorizontalExpand="True"/> -->
         <SplitContainer State="Auto" ResizeMode="NotResizable" HorizontalExpand="True">
             <!-- LHS Controls -->
             <BoxContainer Name="LeftSide" Orientation="Vertical" SeparationOverride="4" HorizontalExpand="True">
@@ -57,6 +59,9 @@
                         </PanelContainer>
                     </BoxContainer>
                 </Control>
+                <!-- Character setup state -->
+                <!-- This is injected on startup. Funky! -->
+                <Control Access="Public" Visible="False" Name="CharacterSetupState" VerticalExpand="True" />
             </BoxContainer>
             <!-- Right Panel -->
             <PanelContainer Name="RightSide" StyleClasses="AngleRect" HorizontalAlignment="Right" VerticalExpand="True"
@@ -98,7 +103,6 @@
                            Margin="3 3 3 3" HorizontalAlignment="Left" /> -->
                     <controls:HSpacer Spacing="2" />
                     <lobbyUi:LobbyCharacterPanel Name="CharacterPreview" Access="Public" />
-                    <Control Access="Public" Visible="False" Name="CharacterSetupState" VerticalExpand="True" />
                     <controls:HSpacer Spacing="5" />
                     <BoxContainer MinHeight="15" />
                     <!-- Gold line -->

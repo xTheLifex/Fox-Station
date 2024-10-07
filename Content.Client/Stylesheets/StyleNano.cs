@@ -173,7 +173,7 @@ namespace Content.Client.Stylesheets
             var notoSansBold18 = resCache.NotoStack(variation: "Bold", size: 18);
             var notoSansBold20 = resCache.NotoStack(variation: "Bold", size: 20);
             var notoSansMono = resCache.GetFont("/EngineFonts/NotoSans/NotoSansMono-Regular.ttf", size: 12);
-            var kabelDemi16 = resCache.GetFont("/EngineFonts/Kabel/Kabel Demi.ttf", size: 16);
+            var kabelDemi16 = resCache.GetFont("/Fonts/Kabel/Kabel Demi.ttf", size: 16);
             var windowHeaderTex = resCache.GetTexture("/Textures/Interface/Nano/window_header.png");
             var windowHeader = new StyleBoxTexture
             {
