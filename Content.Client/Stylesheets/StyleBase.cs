@@ -16,6 +16,7 @@ namespace Content.Client.Stylesheets
         public const string StyleClassLabelHeading = "LabelHeading";
         public const string StyleClassLabelSubText = "LabelSubText";
         public const string StyleClassItalic = "Italic";
+        public const string StyleClassBold = "Bold";
 
         public const string ClassAngleRect = "AngleRect";
 
@@ -44,21 +45,12 @@ namespace Content.Client.Stylesheets
 
         protected StyleBase(IResourceCache resCache)
         {
+            //default game font (not used in this file)
             var notoSans12 = resCache.GetFont
             (
                 new []
                 {
                     "/Fonts/NotoSans/NotoSans-Regular.ttf",
-                    "/Fonts/NotoSans/NotoSansSymbols-Regular.ttf",
-                    "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf"
-                },
-                12
-            );
-            var kabel12 = resCache.GetFont
-            (
-                new []
-                {
-                    "/Fonts/Kabel/Kabel Medium.ttf", //todo: demi for buttons and that things
                     "/Fonts/NotoSans/NotoSansSymbols-Regular.ttf",
                     "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf"
                 },
@@ -74,6 +66,41 @@ namespace Content.Client.Stylesheets
                 },
                 12
             );
+
+            //kabel for bold texts, buttons and header things (like sims4 font)
+            var kabel12 = resCache.GetFont
+            (
+                new []
+                {
+                    "/Fonts/Kabel/Kabel Medium.ttf", //todo: demi for buttons and that things
+                    "/Fonts/NotoSans/NotoSansSymbols-Regular.ttf",
+                    "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf"
+                },
+                12
+            );
+
+            //the sims 1 font!!
+            var comic12 = resCache.GetFont
+            (
+                new []
+                {
+                    "/Fonts/ComicSans/ComicSans.ttf",
+                    "/Fonts/NotoSans/NotoSansSymbols-Regular.ttf",
+                    "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf"
+                },
+                12
+            );
+            var comic12Italic = resCache.GetFont
+            (
+                new []
+                {
+                    "/Fonts/ComicSans/Comic-Italic.ttf",
+                    "/Fonts/NotoSans/NotoSansSymbols-Regular.ttf",
+                    "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf"
+                },
+                12
+            );
+
             var textureCloseButton = resCache.GetTexture("/Textures/Interface/Nano/cross.svg.png");
 
             // Button styles.
@@ -170,7 +197,7 @@ namespace Content.Client.Stylesheets
                     new SelectorElement(null, null, null, null),
                     new[]
                     {
-                        new StyleProperty("font", kabel12),
+                        new StyleProperty("font", comic12),
                     }),
 
                 // Default font.
@@ -178,7 +205,15 @@ namespace Content.Client.Stylesheets
                     new SelectorElement(null, new[] {StyleClassItalic}, null, null),
                     new[]
                     {
-                        new StyleProperty("font", notoSans12Italic),
+                        new StyleProperty("font", comic12Italic),
+                    }),
+
+                // Default font.
+                new StyleRule(
+                    new SelectorElement(null, new[] {StyleClassBold}, null, null),
+                    new[]
+                    {
+                        new StyleProperty("font", kabel12),
                     }),
 
                 // Window close button base texture.

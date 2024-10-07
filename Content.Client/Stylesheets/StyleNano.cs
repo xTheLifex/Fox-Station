@@ -29,7 +29,8 @@ namespace Content.Client.Stylesheets
                 // Ew, but ok
                 new[]
                 {
-                    $"/Fonts/NotoSans{ds}/NotoSans{ds}-{variation}.ttf",
+                    //$"/Fonts/NotoSans{ds}/NotoSans{ds}-{variation}.ttf",
+                    "/Fonts/ComicSans/ComicSans.ttf",
                     $"/Fonts/NotoSans/NotoSansSymbols-{sv}.ttf",
                     "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf"
                 },
@@ -156,6 +157,10 @@ namespace Content.Client.Stylesheets
 
         public StyleNano(IResourceCache resCache) : base(resCache)
         {
+            var kabelDemiDir = "/Fonts/Kabel/Kabel Demi.ttf";
+            var kabelDir = "/Fonts/Kabel/Kabel Medium.ttf";
+            var ComicDir = "/Fonts/ComicSans/ComicSans.ttf";
+
             var notoSans8 = resCache.NotoStack(size: 8);
             var notoSans10 = resCache.NotoStack(size: 10);
             var notoSansItalic10 = resCache.NotoStack(variation: "Italic", size: 10);
@@ -172,8 +177,16 @@ namespace Content.Client.Stylesheets
             var notoSansBold16 = resCache.NotoStack(variation: "Bold", size: 16);
             var notoSansBold18 = resCache.NotoStack(variation: "Bold", size: 18);
             var notoSansBold20 = resCache.NotoStack(variation: "Bold", size: 20);
-            var notoSansMono = resCache.GetFont("/EngineFonts/NotoSans/NotoSansMono-Regular.ttf", size: 12);
-            var kabelDemi16 = resCache.GetFont("/Fonts/Kabel/Kabel Demi.ttf", size: 16);
+            //changing the dir for get the comic instead noto!!
+            var notoSansMono = resCache.GetFont(ComicDir, size: 12); // old dir: "/EngineFonts/NotoSans/NotoSansMono-Regular.ttf"
+            var kabel8 = resCache.GetFont(ComicDir, size: 8);
+            var kabel11 = resCache.GetFont(kabelDir, size: 11); //i think 11 is better for buttons
+            var kabel15 = resCache.GetFont(kabelDir, size: 15);
+            var kabelDemi12 = resCache.GetFont(kabelDemiDir, size: 11);
+            var kabelDemi14 = resCache.GetFont(kabelDemiDir, size: 14);
+            var kabelDemi16 = resCache.GetFont(kabelDemiDir, size: 16);
+            var kabelDemi18 = resCache.GetFont(kabelDemiDir, size: 18);
+            var kabelDemi20 = resCache.GetFont(kabelDemiDir, size: 20);
             var windowHeaderTex = resCache.GetTexture("/Textures/Interface/Nano/window_header.png");
             var windowHeader = new StyleBoxTexture
             {
@@ -736,10 +749,10 @@ namespace Content.Client.Stylesheets
 
                 // Context Menu Labels
                 Element<RichTextLabel>().Class(InteractionVerb.DefaultTextStyleClass)
-                    .Prop(Label.StylePropertyFont, notoSansBoldItalic12),
+                    .Prop(Label.StylePropertyFont, kabel11),
 
                 Element<RichTextLabel>().Class(ActivationVerb.DefaultTextStyleClass)
-                    .Prop(Label.StylePropertyFont, notoSansBold12),
+                    .Prop(Label.StylePropertyFont, kabel11),
 
                 Element<RichTextLabel>().Class(AlternativeVerb.DefaultTextStyleClass)
                     .Prop(Label.StylePropertyFont, notoSansItalic12),
@@ -848,7 +861,7 @@ namespace Content.Client.Stylesheets
                     new SelectorElement(typeof(Label), null, null, null)),
                     new[]
                     {
-                        new StyleProperty("font", notoSansBold16),
+                        new StyleProperty("font", kabelDemi14),
                     }),
 
                 // Main menu: also make those buttons slightly more separated.
@@ -976,14 +989,14 @@ namespace Content.Client.Stylesheets
 
                 new StyleRule(new SelectorElement(typeof(RichTextLabel), new[] {StyleClassLabelKeyText}, null, null), new[]
                 {
-                    new StyleProperty(Label.StylePropertyFont, notoSansBold12),
-                    new StyleProperty( Control.StylePropertyModulateSelf, NanoGold)
+                    new StyleProperty(Label.StylePropertyFont, kabel11),
+                    new StyleProperty( Control.StylePropertyModulateSelf, GoodGreenFore)
                 }),
 
                 // alert tooltip
                 new StyleRule(new SelectorElement(typeof(RichTextLabel), new[] {StyleClassTooltipAlertTitle}, null, null), new[]
                 {
-                    new StyleProperty("font", notoSansBold18)
+                    new StyleProperty("font", kabelDemi18)
                 }),
                 new StyleRule(new SelectorElement(typeof(RichTextLabel), new[] {StyleClassTooltipAlertDescription}, null, null), new[]
                 {
@@ -997,7 +1010,7 @@ namespace Content.Client.Stylesheets
                 // action tooltip
                 new StyleRule(new SelectorElement(typeof(RichTextLabel), new[] {StyleClassTooltipActionTitle}, null, null), new[]
                 {
-                    new StyleProperty("font", notoSansBold16)
+                    new StyleProperty("font", kabelDemi16)
                 }),
                 new StyleRule(new SelectorElement(typeof(RichTextLabel), new[] {StyleClassTooltipActionDescription}, null, null), new[]
                 {
@@ -1102,7 +1115,7 @@ namespace Content.Client.Stylesheets
                 // Big Label
                 new StyleRule(new SelectorElement(typeof(Label), new[] {StyleClassLabelHeading}, null, null), new[]
                 {
-                    new StyleProperty(Label.StylePropertyFont, notoSansBold16),
+                    new StyleProperty(Label.StylePropertyFont, kabelDemi16),
                     new StyleProperty(Label.StylePropertyFontColor, GoodGreenFore),
                 }),
 
@@ -1110,7 +1123,7 @@ namespace Content.Client.Stylesheets
                 new StyleRule(new SelectorElement(typeof(Label), new[] {StyleClassLabelHeadingBigger}, null, null),
                     new[]
                     {
-                        new StyleProperty(Label.StylePropertyFont, notoSansBold20),
+                        new StyleProperty(Label.StylePropertyFont, kabelDemi20),
                         new StyleProperty(Label.StylePropertyFontColor, GoodGreenFore),
                     }),
 
@@ -1124,7 +1137,7 @@ namespace Content.Client.Stylesheets
                 // Label Key
                 new StyleRule(new SelectorElement(typeof(Label), new[] {StyleClassLabelKeyText}, null, null), new[]
                 {
-                    new StyleProperty(Label.StylePropertyFont, notoSansBold12),
+                    new StyleProperty(Label.StylePropertyFont, kabel11),
                     new StyleProperty(Label.StylePropertyFontColor, NanoGold)
                 }),
 
@@ -1486,7 +1499,7 @@ namespace Content.Client.Stylesheets
 
                 Child().Parent(Element<Button>().Class("ButtonSmall"))
                     .Child(Element<Label>())
-                    .Prop(Label.StylePropertyFont, notoSans8),
+                    .Prop(Label.StylePropertyFont, kabel8),
                 // ---
 
                 Element<Label>().Class("StatusFieldTitle")
