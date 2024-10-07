@@ -58,7 +58,9 @@ namespace Content.Client.Stylesheets
             (
                 new []
                 {
-                    "/Fonts/Kabel/Kabel Demi.ttf"
+                    "/Fonts/Kabel/Kabel Medium.ttf", //todo: demi for buttons and that things
+                    "/Fonts/NotoSans/NotoSansSymbols-Regular.ttf",
+                    "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf"
                 },
                 12
             );
