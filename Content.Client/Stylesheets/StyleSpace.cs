@@ -30,17 +30,17 @@ namespace Content.Client.Stylesheets
             (
                 new []
                 {
-                    "/Fonts/ComicSans/ComicSans.ttf",
+                    "/Fonts/NotoSans/NotoSans-Regular.ttf",
                     "/Fonts/NotoSans/NotoSansSymbols-Regular.ttf",
                     "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf"
                 },
-                12
+                10
             );
             var notoSansBold16 = resCache.GetFont
             (
                 new []
                 {
-                    "/Fonts/Kabel/Kabel Demi.ttf",
+                    "/Fonts/NotoSans/NotoSans-Bold.ttf",
                     "/Fonts/NotoSans/NotoSansSymbols-Regular.ttf",
                     "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf"
                 },

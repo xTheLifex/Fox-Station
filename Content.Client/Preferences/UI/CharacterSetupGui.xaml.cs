@@ -74,7 +74,7 @@ namespace Content.Client.Preferences.UI
 
             UpdateUI();
 
-            RulesButton.OnPressed += _ => new RulesAndInfoWindow().Open();
+            //RulesButton.OnPressed += _ => new RulesAndInfoWindow().Open();
 
             StatsButton.OnPressed += _ => new PlaytimeStatsWindow().OpenCentered();
             preferencesManager.OnServerDataLoaded += UpdateUI;

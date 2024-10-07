@@ -31,6 +31,7 @@
             </BoxContainer>
             <!-- Import/Export -->
             <BoxContainer Orientation="Vertical">
+                <!--
                 <prefUi:HighlightedContainer>
                     <BoxContainer Orientation="Horizontal">
                         <Button Text="{Loc 'humanoid-profile-editor-import-button'}" Disabled="True"
@@ -39,6 +40,7 @@
                                 ToolTip="{Loc 'generic-not-yet-implemented'}" />
                     </BoxContainer>
                 </prefUi:HighlightedContainer>
+                -->
                 <!-- Save -->
                 <prefUi:HighlightedContainer>
                     <Button Name="CSaveButton" Text="{Loc 'humanoid-profile-editor-save-button'}" HorizontalAlignment="Center" />
@@ -91,7 +93,7 @@
                                 <Control HorizontalExpand="True"/>
                                 <Button Name="ShowLoadouts" Pressed="True" ToggleMode="True" Text="{Loc 'Show'}" HorizontalAlignment="Right" />
                             </BoxContainer>
-                            <!-- Spawn Priority -->
+                            <!-- Spawn Priority --> <!-- todo: remove and put arrivals default-->
                             <BoxContainer HorizontalExpand="True">
                                 <Label Text="{Loc 'humanoid-profile-editor-spawn-priority-label'}" />
                                 <Control HorizontalExpand="True"/>

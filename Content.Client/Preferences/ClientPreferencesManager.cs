@@ -87,7 +87,7 @@ namespace Content.Client.Preferences
 
             if (lowest == null)
             {
-                throw new InvalidOperationException("Out of character slots!");
+                throw new InvalidOperationException("Out of sims slots!");
             }
 
             var l = lowest.Value;

@@ -1,6 +1,6 @@
 ﻿## Species Names
 
-species-name-human = Human
+species-name-human = Human Sim
 species-name-dwarf = Dwarf
 species-name-reptilian = Unathi
 species-name-slime = Slime Person
