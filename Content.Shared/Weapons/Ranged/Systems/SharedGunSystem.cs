@@ -118,7 +118,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (melee.NextAttack > component.NextFire)
         {
             component.NextFire = melee.NextAttack;
-            Dirty(component);
+            Dirty(uid, component);
         }
     }
 
@@ -249,7 +249,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         var prevention = new ShotAttemptedEvent
         {
             User = user,
-            Used = gunUid
+            Used = (gunUid, gun)
         };
         RaiseLocalEvent(gunUid, ref prevention);
         if (prevention.Cancelled)
